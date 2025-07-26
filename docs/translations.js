@@ -29,9 +29,10 @@ const translations = {
         'btn-info': 'Infos',
         
         // JUFA Hotel
+        'jufa-name': 'JUFA Hotel Nördlingen',
+        'jufa-address': 'Bleichgraben 3A, 86720 Nördlingen',
         'jufa-distance': 'ca. 15 km von Rudelstetten',
         'jufa-category': '3-Sterne Familienhotel',
-        'jufa-parking': '3€ pro Nacht',
         'jufa-description': 'Familienfreundliches Hotel mit Sonnenterrasse, direkt an der historischen Stadtmauer von Nördlingen. Thematische Zimmer im Planetensystem-Design.',
         
         // 2ND home Hotel
@@ -48,17 +49,17 @@ const translations = {
         'heylou-description': 'Modernes Design-Hotel in Nördlingen, das mit stilvollem Ambiente und komfortabler Ausstattung überzeugt.',
         
         // Restaurants
-        'romana-address': 'Marktplatz, 86732 Oettingen',
+        'romana-address': 'Nördlinger Str. 2, 86732 Oettingen',
         'romana-distance': 'ca. 20 km von Rudelstetten',
         'romana-cuisine': 'Italienisch & International',
         'romana-description': 'Beliebtes italienisches Restaurant am Marktplatz von Oettingen mit authentischer Küche und gemütlicher Atmosphäre.',
         
-        'huebele-address': 'Herrengasse 11, 86720 Nördlingen',
+        'huebele-address': 'B. den Kornschrannen 19, 86720 Nördlingen',
         'huebele-distance': 'ca. 15 km von Rudelstetten',
         'huebele-cuisine': 'Kroatische Küche',
         'huebele-description': 'Gemütliches Restaurant mit traditioneller deutscher Küche und einem charmanten Innenhof.',
         
-        'schloessle-address': 'Baldinger Str. 1, 86720 Nördlingen',
+        'schloessle-address': 'Würzburger Str. 1, 86720 Nördlingen',
         'schloessle-distance': 'ca. 15 km von Rudelstetten',
         'schloessle-cuisine': 'Regionale Küche',
         'schloessle-description': 'Historisches Restaurant im Herzen von Nördlingen mit regionalen Spezialitäten und gemütlichem Ambiente.',
@@ -81,13 +82,13 @@ const translations = {
         'ofnet-description': 'Berühmte steinzeitliche Fundstätte mit zwei Höhlen. Wichtiger archäologischer Ort mit wunderschönem Wanderweg und Naturerlebnis.',
         
         'minigolf-title': 'Minigolfplatz Nördlingen',
-        'minigolf-address': 'Am Sportpark 1, 86720 Nördlingen',
+        'minigolf-address': 'An der Bergermauer, 86720 Nördlingen',
         'minigolf-distance': 'ca. 15 km von Rudelstetten',
         'minigolf-type': 'Freizeitaktivität',
         'minigolf-description': 'Ein beliebter Minigolfplatz in Nördlingen, ideal für Familien und Freunde, die eine entspannte Zeit verbringen möchten.',
         
         'danielturm-title': 'Danielturm Nördlingen',
-        'danielturm-address': 'Kirchgasse 1, 86720 Nördlingen',
+        'danielturm-address': 'Windgäßchen, 86720 Nördlingen',
         'danielturm-distance': 'ca. 15 km von Rudelstetten',
         'danielturm-type': 'Aussichtsturm',
         'danielturm-description': 'Der Danielturm ist der Glockenturm der St. Georgskirche und bietet einen atemberaubenden Panoramablick über Nördlingen und den Rieskrater.',
@@ -126,9 +127,10 @@ const translations = {
         'btn-info': 'Info',
         
         // JUFA Hotel
+        'jufa-name': 'JUFA Hotel Nördlingen',
+        'jufa-address': 'Bleichgraben 3A, 86720 Nördlingen',
         'jufa-distance': 'approx. 15 km from Rudelstetten',
         'jufa-category': '3-star family hotel',
-        'jufa-parking': '3€ per night',
         'jufa-description': 'Family-friendly hotel with sun terrace, directly at the historic city wall of Nördlingen. Themed rooms in planetary system design.',
         
         // 2ND home Hotel
@@ -145,17 +147,17 @@ const translations = {
         'heylou-description': 'Modern design hotel in Nördlingen, convincing with stylish ambience and comfortable furnishings.',
         
         // Restaurants
-        'romana-address': 'Marktplatz, 86732 Oettingen',
+        'romana-address': 'Nördlinger Str. 2, 86732 Oettingen',
         'romana-distance': 'approx. 20 km from Rudelstetten',
         'romana-cuisine': 'Italian & International',
         'romana-description': 'Popular Italian restaurant at the market square of Oettingen with authentic cuisine and cozy atmosphere.',
         
-        'huebele-address': 'Herrengasse 11, 86720 Nördlingen',
+        'huebele-address': 'B. den Kornschrannen 19, 86720 Nördlingen',
         'huebele-distance': 'approx. 15 km from Rudelstetten',
         'huebele-cuisine': 'Croatian Cuisine',
         'huebele-description': 'Cozy restaurant with traditional German cuisine and a charming courtyard.',
         
-        'schloessle-address': 'Baldinger Str. 1, 86720 Nördlingen',
+        'schloessle-address': 'Würzburger Str. 1, 86720 Nördlingen',
         'schloessle-distance': 'approx. 15 km from Rudelstetten',
         'schloessle-cuisine': 'Regional Cuisine',
         'schloessle-description': 'Historic restaurant in the heart of Nördlingen with regional specialties and cozy atmosphere.',
@@ -178,13 +180,13 @@ const translations = {
         'ofnet-description': 'Famous Stone Age archaeological site with two caves. Important archaeological location with beautiful hiking trail and nature experience.',
         
         'minigolf-title': 'Minigolf Course Nördlingen',
-        'minigolf-address': 'Am Sportpark 1, 86720 Nördlingen',
+        'minigolf-address': 'An der Bergermauer, 86720 Nördlingen',
         'minigolf-distance': 'approx. 15 km from Rudelstetten',
         'minigolf-type': 'Leisure activity',
         'minigolf-description': 'A popular minigolf course in Nördlingen, ideal for families and friends who want to spend a relaxed time.',
         
         'danielturm-title': 'Daniel Tower Nördlingen',
-        'danielturm-address': 'Kirchgasse 1, 86720 Nördlingen',
+        'danielturm-address': 'Windgäßchen, 86720 Nördlingen',
         'danielturm-distance': 'approx. 15 km from Rudelstetten',
         'danielturm-type': 'Observation tower',
         'danielturm-description': 'The Daniel Tower is the bell tower of St. George\'s Church and offers a breathtaking panoramic view over Nördlingen and the Ries crater.',
@@ -223,9 +225,10 @@ const translations = {
         'btn-info': 'Informații',
         
         // JUFA Hotel
+        'jufa-name': 'JUFA Hotel Nördlingen',
+        'jufa-address': 'Bleichgraben 3A, 86720 Nördlingen',
         'jufa-distance': 'aprox. 15 km de Rudelstetten',
         'jufa-category': 'Hotel pentru familii 3 stele',
-        'jufa-parking': '3€ pe noapte',
         'jufa-description': 'Hotel prietenos cu familiile cu terasă la soare, direct la zidul istoric al orașului Nördlingen. Camere tematice în design de sistem planetar.',
         
         // 2ND home Hotel
@@ -242,17 +245,17 @@ const translations = {
         'heylou-description': 'Hotel de design modern în Nördlingen, care convinge prin ambianța sa elegantă și dotările confortabile.',
         
         // Restaurants
-        'romana-address': 'Marktplatz, 86732 Oettingen',
+        'romana-address': 'Nördlinger Str. 2, 86732 Oettingen',
         'romana-distance': 'aprox. 20 km de Rudelstetten',
         'romana-cuisine': 'Italiană & Internațională',
         'romana-description': 'Restaurant italian popular în piața centrală din Oettingen cu bucătărie autentică și atmosferă confortabilă.',
         
-        'huebele-address': 'Herrengasse 11, 86720 Nördlingen',
+        'huebele-address': 'B. den Kornschrannen 19, 86720 Nördlingen',
         'huebele-distance': 'aprox. 15 km de Rudelstetten',
         'huebele-cuisine': 'Bucătărie croată',
         'huebele-description': 'Restaurant confortabil cu bucătărie tradițională germană și o curte fermecătoare.',
         
-        'schloessle-address': 'Baldinger Str. 1, 86720 Nördlingen',
+        'schloessle-address': 'Würzburger Str. 1, 86720 Nördlingen',
         'schloessle-distance': 'aprox. 15 km de Rudelstetten',
         'schloessle-cuisine': 'Bucătărie regională',
         'schloessle-description': 'Restaurant istoric în inima orașului Nördlingen, cu specialități regionale și o atmosferă confortabilă.',
@@ -275,13 +278,13 @@ const translations = {
         'ofnet-description': 'Famós sit arheologic din Epoca de Piatră cu două peșteri. Locație arheologică importantă cu traseu de drumeție frumos și experiență în natură.',
         
         'minigolf-title': 'Teren de minigolf Nördlingen',
-        'minigolf-address': 'Am Sportpark 1, 86720 Nördlingen',
+        'minigolf-address': 'An der Bergermauer, 86720 Nördlingen',
         'minigolf-distance': 'aprox. 15 km de Rudelstetten',
         'minigolf-type': 'Activitate de agrement',
         'minigolf-description': 'Un teren de minigolf popular în Nördlingen, ideal pentru familii și prieteni care doresc să petreacă un timp relaxant.',
         
         'danielturm-title': 'Turnul Daniel Nördlingen',
-        'danielturm-address': 'Kirchgasse 1, 86720 Nördlingen',
+        'danielturm-address': 'Windgäßchen, 86720 Nördlingen',
         'danielturm-distance': 'aprox. 15 km de Rudelstetten',
         'danielturm-type': 'Turn de observație',
         'danielturm-description': 'Turnul Daniel este clopotnița Bisericii Sf. Gheorghe și oferă o vedere panoramică uimitoare asupra orașului Nördlingen și a craterului Ries.',
@@ -320,9 +323,10 @@ const translations = {
         'btn-info': 'Informacije',
         
         // JUFA Hotel
+        'jufa-name': 'JUFA Hotel Nördlingen',
+        'jufa-address': 'Bleichgraben 3A, 86720 Nördlingen',
         'jufa-distance': 'cca. 15 km od Rudelstettena',
         'jufa-category': 'Obiteljski hotel 3 zvjezdice',
-        'jufa-parking': '3€ po noći',
         'jufa-description': 'Obiteljski hotel s terasom za sunčanje, izravno uz povijesni gradski zid Nördlingena. Tematske sobe u dizajnu planetarnog sustava.',
         
         // 2ND home Hotel
@@ -339,17 +343,17 @@ const translations = {
         'heylou-description': 'Moderan dizajnerski hotel u Nördlingenu, koji uvjerava stilskim ambijentom i udobnom opremom.',
         
         // Restaurants
-        'romana-address': 'Marktplatz, 86732 Oettingen',
+        'romana-address': 'Nördlinger Str. 2, 86732 Oettingen',
         'romana-distance': 'cca. 20 km od Rudelstettena',
         'romana-cuisine': 'Talijanska i internacionalna',
         'romana-description': 'Popularan talijanski restoran na tržišnom trgu Oettingena s autentičnom kuhinjom i ugodnom atmosferom.',
         
-        'huebele-address': 'Herrengasse 11, 86720 Nördlingen',
+        'huebele-address': 'B. den Kornschrannen 19, 86720 Nördlingen',
         'huebele-distance': 'cca. 15 km od Rudelstettena',
         'huebele-cuisine': 'Hrvatska kuhinja',
         'huebele-description': 'Ugodan restoran s tradicionalnom njemačkom kuhinjom i šarmantnim dvorištem.',
         
-        'schloessle-address': 'Baldinger Str. 1, 86720 Nördlingen',
+        'schloessle-address': 'Würzburger Str. 1, 86720 Nördlingen',
         'schloessle-distance': 'cca. 15 km od Rudelstettena',
         'schloessle-cuisine': 'Regionalna kuhinja',
         'schloessle-description': 'Povijesni restoran u srcu Nördlingena s regionalnim specijalitetima i ugodnom atmosferom.',
@@ -372,13 +376,13 @@ const translations = {
         'ofnet-description': 'Poznato arheološko nalazište iz kamenog doba s dvije špilje. Važna arheološka lokacija s prekrasnom stazom za pješačenje i prirodnim iskustvom.',
         
         'minigolf-title': 'Minigolf teren Nördlingen',
-        'minigolf-address': 'Am Sportpark 1, 86720 Nördlingen',
+        'minigolf-address': 'An der Bergermauer, 86720 Nördlingen',
         'minigolf-distance': 'cca. 15 km od Rudelstettena',
         'minigolf-type': 'Rekreativna aktivnost',
         'minigolf-description': 'Popularan minigolf teren u Nördlingenu, idealan za obitelji i prijatelje koji žele provesti opušteno vrijeme.',
         
         'danielturm-title': 'Danielov toranj Nördlingen',
-        'danielturm-address': 'Kirchgasse 1, 86720 Nördlingen',
+        'danielturm-address': 'Windgäßchen, 86720 Nördlingen',
         'danielturm-distance': 'cca. 15 km od Rudelstettena',
         'danielturm-type': 'Vidikovac',
         'danielturm-description': 'Danielov toranj je zvonik crkve sv. Jurja i nudi zadivljujući panoramski pogled na Nördlingen i Ries krater.',
@@ -417,9 +421,10 @@ const translations = {
         'btn-info': 'Informazioni',
         
         // JUFA Hotel
+        'jufa-name': 'JUFA Hotel Nördlingen',
+        'jufa-address': 'Bleichgraben 3A, 86720 Nördlingen',
         'jufa-distance': 'ca. 15 km da Rudelstetten',
         'jufa-category': 'Hotel per famiglie 3 stelle',
-        'jufa-parking': '3€ a notte',
         'jufa-description': 'Hotel per famiglie con terrazza solarium, direttamente alle mura storiche della città di Nördlingen. Camere tematiche nel design del sistema planetario.',
         
         // 2ND home Hotel
@@ -436,17 +441,17 @@ const translations = {
         'heylou-description': 'Moderno hotel di design a Nördlingen, che convince con un\'atmosfera elegante e arredi confortevoli.',
         
         // Restaurants
-        'romana-address': 'Marktplatz, 86732 Oettingen',
+        'romana-address': 'Nördlinger Str. 2, 86732 Oettingen',
         'romana-distance': 'ca. 20 km da Rudelstetten',
         'romana-cuisine': 'Italiana e internazionale',
         'romana-description': 'Popolare ristorante italiano nella piazza del mercato di Oettingen con cucina autentica e atmosfera accogliente.',
         
-        'huebele-address': 'Herrengasse 11, 86720 Nördlingen',
+        'huebele-address': 'B. den Kornschrannen 19, 86720 Nördlingen',
         'huebele-distance': 'ca. 15 km da Rudelstetten',
         'huebele-cuisine': 'Cucina croata',
         'huebele-description': 'Ristorante accogliente con cucina tradizionale tedesca e un incantevole cortile.',
         
-        'schloessle-address': 'Baldinger Str. 1, 86720 Nördlingen',
+        'schloessle-address': 'Würzburger Str. 1, 86720 Nördlingen',
         'schloessle-distance': 'ca. 15 km da Rudelstetten',
         'schloessle-cuisine': 'Cucina regionale',
         'schloessle-description': 'Ristorante storico nel cuore di Nördlingen con specialità regionali e un\'atmosfera accogliente.',
@@ -469,13 +474,13 @@ const translations = {
         'ofnet-description': 'Famoso sito archeologico dell\'Età della Pietra con due grotte. Importante location archeologica con bellissimo sentiero escursionistico ed esperienza naturale.',
         
         'minigolf-title': 'Campo da minigolf Nördlingen',
-        'minigolf-address': 'Am Sportpark 1, 86720 Nördlingen',
+        'minigolf-address': 'An der Bergermauer, 86720 Nördlingen',
         'minigolf-distance': 'ca. 15 km da Rudelstetten',
         'minigolf-type': 'Attività ricreativa',
         'minigolf-description': 'Un popolare campo da minigolf a Nördlingen, ideale per famiglie e amici che vogliono trascorrere un momento di relax.',
         
         'danielturm-title': 'Torre Daniel Nördlingen',
-        'danielturm-address': 'Kirchgasse 1, 86720 Nördlingen',
+        'danielturm-address': 'Windgäßchen, 86720 Nördlingen',
         'danielturm-distance': 'ca. 15 km da Rudelstetten',
         'danielturm-type': 'Torre panoramica',
         'danielturm-description': 'La Torre Daniel è il campanile della Chiesa di San Giorgio e offre una vista panoramica mozzafiato su Nördlingen e sul cratere del Ries.',
