@@ -4,378 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hochzeit - Gasthaus Rieser Hof</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --eucalyptus-light: #b8c5b0;
-            --eucalyptus-main: #8faa8b;
-            --eucalyptus-dark: #6b8e6b;
-            --autumn-gold: #d4af37;
-            --autumn-orange: #d2691e;
-            --autumn-red: #a0522d;
-            --white: #ffffff;
-            --cream: #faf8f5;
-            --text-dark: #2c3e35;
-            --text-light: #5a6b5d;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, var(--eucalyptus-main) 0%, var(--eucalyptus-dark) 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Language Switcher */
-        .language-switcher {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .lang-btn {
-            background: rgba(255,255,255,0.2);
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .lang-btn:hover,
-        .lang-btn.active {
-            background: rgba(255,255,255,0.3);
-            border-color: rgba(255,255,255,0.5);
-            transform: translateY(-2px);
-        }
-
-        /* Navigation */
-        .nav {
-            background: var(--white);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-menu {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-
-        .nav-link:hover {
-            background: var(--eucalyptus-light);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Main Content */
-        .main {
-            padding: 3rem 0;
-        }
-
-        .section {
-            margin-bottom: 4rem;
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            border: 1px solid rgba(143, 170, 139, 0.1);
-        }
-
-        .section h2 {
-            color: var(--eucalyptus-dark);
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, var(--autumn-gold), var(--autumn-orange));
-            margin: 0.5rem auto;
-            border-radius: 2px;
-        }
-
-        /* Cards */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        /* Special layout for attractions section to ensure minigolf and danielturm are side by side */
-        #attractions .cards-grid {
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        }
-
-        /* Ensure last two cards in attractions are always side by side on larger screens */
-        @media (min-width: 768px) {
-            #attractions .cards-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            }
-            
-            /* Force the last two cards to be side by side */
-            #attractions .card:nth-last-child(-n+2) {
-                grid-column: span 1;
-            }
-        }
-
-        .card {
-            background: var(--cream);
-            border-radius: 15px;
-            padding: 1.5rem;
-            border-left: 4px solid var(--eucalyptus-main);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--eucalyptus-main), var(--autumn-gold), var(--autumn-orange));
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .card h3 {
-            color: var(--eucalyptus-dark);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .card p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-
-        .card-info {
-            margin-bottom: 1rem;
-        }
-
-        .card-info span {
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        /* Buttons */
-        .btn-group {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .btn {
-            padding: 0.7rem 1.2rem;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--eucalyptus-main), var(--eucalyptus-dark));
-            color: white;
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, var(--autumn-gold), var(--autumn-orange));
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        /* Location Section */
-        .location-info {
-            background: linear-gradient(135deg, var(--eucalyptus-light) 0%, var(--eucalyptus-main) 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .location-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .location-info p {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--eucalyptus-dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-
-        .footer-links {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .footer-ad {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin: 0;
-        }
-
-        .footer-link {
-            color: var(--autumn-gold);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: white;
-            text-decoration: underline;
-        }
-
-        .footer-separator {
-            margin: 0 0.5rem;
-            opacity: 0.6;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .nav-menu {
-                gap: 1rem;
-            }
-
-            .nav-link {
-                font-size: 1rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .section {
-                padding: 1.5rem;
-                margin-bottom: 2rem;
-            }
-
-            .section h2 {
-                font-size: 1.5rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .btn-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                justify-content: center;
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .language-switcher {
-                gap: 0.5rem;
-            }
-
-            .lang-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
@@ -383,11 +12,11 @@
             <h1 data-lang-key="title">Herzlich Willkommen zu unserer Hochzeit</h1>
             <p data-lang-key="subtitle">Gasthaus Rieser Hof, Rudelstetten</p>
             <div class="language-switcher">
-                <button class="lang-btn active" onclick="switchLanguage('de')">Deutsch</button>
-                <button class="lang-btn" onclick="switchLanguage('en')">English</button>
-                <button class="lang-btn" onclick="switchLanguage('ro')">Română</button>
-                <button class="lang-btn" onclick="switchLanguage('hr')">Hrvatski</button>
-                <button class="lang-btn" onclick="switchLanguage('it')">Italiano</button>
+                <button class="lang-btn active" data-lang="de">Deutsch</button>
+                <button class="lang-btn" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="ro">Română</button>
+                <button class="lang-btn" data-lang="hr">Hrvatski</button>
+                <button class="lang-btn" data-lang="it">Italiano</button>
             </div>
         </div>
     </header>
@@ -428,9 +57,9 @@
                         <h3>JUFA Hotel Nördlingen</h3>
                         <div class="card-info">
                             <p><span data-lang-key="address">Adresse:</span> Baldinger Str. 15, 86720 Nördlingen</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
-                            <p><span data-lang-key="category">Kategorie:</span> 3-Sterne Familienhotel</p>
-                            <p><span data-lang-key="parking">Parken:</span> 3€ pro Nacht</p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="jufa-distance">ca. 15 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="category">Kategorie:</span> <span data-lang-key="jufa-category">3-Sterne Familienhotel</span></p>
+                            <p><span data-lang-key="parking">Parken:</span> <span data-lang-key="jufa-parking">3€ pro Nacht</span></p>
                         </div>
                         <p data-lang-key="jufa-description">Familienfreundliches Hotel mit Sonnenterrasse, direkt an der historischen Stadtmauer von Nördlingen. Thematische Zimmer im Planetensystem-Design.</p>
                         <div class="btn-group">
@@ -440,25 +69,25 @@
                     </div>
 
                     <div class="card">
-                        <h3>NH Klösterle Nördlingen</h3>
+                        <h3 data-lang-key="2nd-home-name">2ND home Hotel</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="address">Adresse:</span> Beim Klösterle 1, 86720 Nördlingen</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
-                            <p><span data-lang-key="category">Kategorie:</span> 4-Sterne Historisches Hotel</p>
+                            <p><span data-lang-key="address">Adresse:</span> <span data-lang-key="2nd-home-address">Luntenbuck 9, 86720 Nördlingen</span></p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="2nd-home-distance">ca. 15 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="category">Kategorie:</span> <span data-lang-key="2nd-home-category">Modernes Hotel</span></p>
                         </div>
-                        <p data-lang-key="nh-description">Historisches Hotel in einem ehemaligen Kloster, mitten in der Altstadt von Nördlingen. Einzigartige Atmosphäre mit modernem Komfort.</p>
+                        <p data-lang-key="2nd-home-description">Modernes Hotel mit stilvollen Zimmern und einer gemütlichen Atmosphäre, ideal für einen entspannten Aufenthalt.</p>
                         <div class="btn-group">
-                            <a href="https://www.nh-hotels.de" target="_blank" class="btn btn-primary" data-lang-key="btn-website">Website</a>
-                            <a href="#" onclick="openMaps('NH Klösterle Nördlingen, Beim Klösterle 1, 86720 Nördlingen')" class="btn btn-secondary" data-lang-key="btn-maps">Karte</a>
+                            <a href="https://2ndhomehotel.de/" target="_blank" class="btn btn-primary" data-lang-key="btn-website">Website</a>
+                            <a href="#" onclick="openMaps('2ND home Hotel, Luntenbuck 9, 86720 Nördlingen')" class="btn btn-secondary" data-lang-key="btn-maps">Karte</a>
                         </div>
                     </div>
 
                     <div class="card">
                         <h3>Hey Lou Hotel</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="address">Adresse:</span> Maria-Penn-Straße 5, 86720 Nördlingen</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
-                            <p><span data-lang-key="category">Kategorie:</span> Design Hotel</p>
+                            <p><span data-lang-key="address">Adresse:</span> <span data-lang-key="heylou-address">Maria-Penn-Straße 5, 86720 Nördlingen</span></p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="heylou-distance">ca. 15 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="category">Kategorie:</span> <span data-lang-key="heylou-category">Design Hotel</span></p>
                         </div>
                         <p data-lang-key="heylou-description">Modernes Design-Hotel in Nördlingen, das mit stilvollem Ambiente und komfortabler Ausstattung überzeugt.</p>
                         <div class="btn-group">
@@ -476,9 +105,9 @@
                     <div class="card">
                         <h3>Restaurant Romana - Oettingen</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="address">Adresse:</span> Marktplatz, 86732 Oettingen</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 20 km von Rudelstetten</p>
-                            <p><span data-lang-key="cuisine">Küche:</span> Italienisch & International</p>
+                            <p><span data-lang-key="address">Adresse:</span> <span data-lang-key="romana-address">Marktplatz, 86732 Oettingen</span></p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="romana-distance">ca. 20 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="cuisine">Küche:</span> <span data-lang-key="romana-cuisine">Italienisch & International</span></p>
                         </div>
                         <p data-lang-key="romana-description">Beliebtes italienisches Restaurant am Marktplatz von Oettingen mit authentischer Küche und gemütlicher Atmosphäre.</p>
                         <div class="btn-group">
@@ -490,8 +119,8 @@
                     <div class="card">
                         <h3>Zum Huebele</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="address">Adresse:</span> Herrengasse 11, 86720 Nördlingen</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
+                            <p><span data-lang-key="address">Adresse:</span> <span data-lang-key="huebele-address">Herrengasse 11, 86720 Nördlingen</span></p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="huebele-distance">ca. 15 km von Rudelstetten</span></p>
                             <p><span data-lang-key="cuisine">Küche:</span> <span data-lang-key="huebele-cuisine">Kroatische Küche</span></p>
                         </div>
                         <p data-lang-key="huebele-description">Gemütliches Restaurant mit traditioneller deutscher Küche und einem charmanten Innenhof.</p>
@@ -504,8 +133,8 @@
                     <div class="card">
                         <h3>Schlössle Nördlingen</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="address">Adresse:</span> Baldinger Str. 1, 86720 Nördlingen</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
+                            <p><span data-lang-key="address">Adresse:</span> <span data-lang-key="schloessle-address">Baldinger Str. 1, 86720 Nördlingen</span></p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="schloessle-distance">ca. 15 km von Rudelstetten</span></p>
                             <p><span data-lang-key="cuisine">Küche:</span> <span data-lang-key="schloessle-cuisine">Regionale Küche</span></p>
                         </div>
                         <p data-lang-key="schloessle-description">Historisches Restaurant im Herzen von Nördlingen mit regionalen Spezialitäten und gemütlichem Ambiente.</p>
@@ -524,8 +153,8 @@
                     <div class="card">
                         <h3 data-lang-key="noerdlingen-title">Nördlingen - Die Stadt im Rieskrater</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
-                            <p><span data-lang-key="highlights">Highlights:</span> Stadtmauer, Daniel-Turm, Altstadt</p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="noerdlingen-distance">ca. 15 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="highlights">Highlights:</span> <span data-lang-key="noerdlingen-highlights">Stadtmauer, Daniel-Turm, Altstadt</span></p>
                         </div>
                         <p data-lang-key="noerdlingen-description">Mittelalterliche Stadt mit vollständig erhaltener Stadtmauer. Berühmt als Drehort für verschiedene Filme und die einzigartige Lage im Rieskrater.</p>
                         <div class="btn-group">
@@ -537,8 +166,8 @@
                     <div class="card">
                         <h3 data-lang-key="stadtmauer-title">Stadtmauer Nördlingen</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
-                            <p><span data-lang-key="highlights">Highlights:</span> Einzigartig in Deutschland, begehbarer Wehrgang</p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="stadtmauer-distance">ca. 15 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="highlights">Highlights:</span> <span data-lang-key="stadtmauer-highlights">Einzigartig in Deutschland, begehbarer Wehrgang</span></p>
                         </div>
                         <p data-lang-key="stadtmauer-description">Die vollständig erhaltene und begehbare Stadtmauer von Nördlingen ist ein einzigartiges Denkmal in Deutschland und bietet einen wunderschönen Rundgang um die Altstadt.</p>
                         <div class="btn-group">
@@ -550,9 +179,9 @@
                     <div class="card">
                         <h3 data-lang-key="ofnet-title">Ofnethöhlen</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="location">Ort:</span> Bei Nördlingen am Riegelberg</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 18 km von Rudelstetten</p>
-                            <p><span data-lang-key="type">Art:</span> Prähistorische Höhlen</p>
+                            <p><span data-lang-key="location">Ort:</span> <span data-lang-key="ofnet-location">Bei Nördlingen am Riegelberg</span></p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="ofnet-distance">ca. 18 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="type">Art:</span> <span data-lang-key="ofnet-type">Prähistorische Höhlen</span></p>
                         </div>
                         <p data-lang-key="ofnet-description">Berühmte steinzeitliche Fundstätte mit zwei Höhlen. Wichtiger archäologischer Ort mit wunderschönem Wanderweg und Naturerlebnis.</p>
                         <div class="btn-group">
@@ -564,9 +193,9 @@
                     <div class="card">
                         <h3 data-lang-key="minigolf-title">Minigolfplatz Nördlingen</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="address">Adresse:</span> Am Sportpark 1, 86720 Nördlingen</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
-                            <p><span data-lang-key="type">Art:</span> Freizeitaktivität</p>
+                            <p><span data-lang-key="address">Adresse:</span> <span data-lang-key="minigolf-address">Am Sportpark 1, 86720 Nördlingen</span></p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="minigolf-distance">ca. 15 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="type">Art:</span> <span data-lang-key="minigolf-type">Freizeitaktivität</span></p>
                         </div>
                         <p data-lang-key="minigolf-description">Ein beliebter Minigolfplatz in Nördlingen, ideal für Familien und Freunde, die eine entspannte Zeit verbringen möchten.</p>
                         <div class="btn-group">
@@ -578,9 +207,9 @@
                     <div class="card">
                         <h3 data-lang-key="danielturm-title">Danielturm Nördlingen</h3>
                         <div class="card-info">
-                            <p><span data-lang-key="address">Adresse:</span> Kirchgasse 1, 86720 Nördlingen</p>
-                            <p><span data-lang-key="distance">Entfernung:</span> ca. 15 km von Rudelstetten</p>
-                            <p><span data-lang-key="type">Art:</span> Aussichtsturm</p>
+                            <p><span data-lang-key="address">Adresse:</span> <span data-lang-key="danielturm-address">Kirchgasse 1, 86720 Nördlingen</span></p>
+                            <p><span data-lang-key="distance">Entfernung:</span> <span data-lang-key="danielturm-distance">ca. 15 km von Rudelstetten</span></p>
+                            <p><span data-lang-key="type">Art:</span> <span data-lang-key="danielturm-type">Aussichtsturm</span></p>
                         </div>
                         <p data-lang-key="danielturm-description">Der Danielturm ist der Glockenturm der St. Georgskirche und bietet einen atemberaubenden Panoramablick über Nördlingen und den Rieskrater.</p>
                         <div class="btn-group">
@@ -609,352 +238,7 @@
         </div>
     </footer>
 
-    <script>
-        // Complete translations object for all 5 languages
-        const translations = {
-            de: {
-                'title': 'Herzlich Willkommen zu unserer Hochzeit',
-                'subtitle': 'Gasthaus Rieser Hof, Rudelstetten',
-                'nav-location': 'Hochzeitsort',
-                'nav-hotels': 'Hotels',
-                'nav-restaurants': 'Restaurants',
-                'nav-attractions': 'Sehenswürdigkeiten',
-                'location-title': 'Hochzeitsort',
-                'venue-name': 'Gasthaus Rieser Hof',
-                'venue-address': 'St. Ulrich Strasse 12, 86733 Rudelstetten',
-                'venue-phone': 'Tel: 09085/513',
-                'venue-description': 'Das Gasthaus Rieser Hof liegt mitten im Geopark Ries und bietet eine schwäbische Landküche mit regionalen Spezialitäten. Als besondere Attraktion gibt es den Haustrunk - ein selbstgebrautes Bier!',
-                'hotels-title': 'Empfohlene Hotels',
-                'restaurants-title': 'Empfohlene Restaurants',
-                'attractions-title': 'Sehenswürdigkeiten',
-                'address': 'Adresse:',
-                'distance': 'Entfernung:',
-                'category': 'Kategorie:',
-                'parking': 'Parken:',
-                'cuisine': 'Küche:',
-                'location': 'Ort:',
-                'type': 'Art:',
-                'highlights': 'Highlights:',
-                'btn-website': 'Website besuchen',
-                'btn-maps': 'In Karten öffnen',
-                'btn-search': 'Suchen',
-                'btn-info': 'Infos',
-                'jufa-description': 'Familienfreundliches Hotel mit Sonnenterrasse, direkt an der historischen Stadtmauer von Nördlingen. Thematische Zimmer im Planetensystem-Design.',
-                'nh-description': 'Historisches Hotel in einem ehemaligen Kloster, mitten in der Altstadt von Nördlingen. Einzigartige Atmosphäre mit modernem Komfort.',
-                'heylou-description': 'Modernes Design-Hotel in Nördlingen, das mit stilvollem Ambiente und komfortabler Ausstattung überzeugt.',
-                'romana-description': 'Beliebtes italienisches Restaurant am Marktplatz von Oettingen mit authentischer Küche und gemütlicher Atmosphäre.',
-                'huebele-description': 'Gemütliches Restaurant mit traditioneller deutscher Küche und einem charmanten Innenhof.',
-                'huebele-cuisine': 'Kroatische Küche',
-                'schloessle-description': 'Historisches Restaurant im Herzen von Nördlingen mit regionalen Spezialitäten und gemütlichem Ambiente.',
-                'schloessle-cuisine': 'Regionale Küche',
-                'noerdlingen-title': 'Nördlingen - Die Stadt im Rieskrater',
-                'noerdlingen-description': 'Mittelalterliche Stadt mit vollständig erhaltener Stadtmauer. Berühmt als Drehort für verschiedene Filme und die einzigartige Lage im Rieskrater.',
-                'ofnet-title': 'Ofnethöhlen',
-                'ofnet-description': 'Berühmte steinzeitliche Fundstätte mit zwei Höhlen. Wichtiger archäologischer Ort mit wunderschönem Wanderweg und Naturerlebnis.',
-                'stadtmauer-title': 'Stadtmauer Nördlingen',
-                'stadtmauer-description': 'Die vollständig erhaltene und begehbare Stadtmauer von Nördlingen ist ein einzigartiges Denkmal in Deutschland und bietet einen wunderschönen Rundgang um die Altstadt.',
-                
-                'minigolf-title': 'Minigolfplatz Nördlingen',
-                'minigolf-description': 'Ein beliebter Minigolfplatz in Nördlingen, ideal für Familien und Freunde, die eine entspannte Zeit verbringen möchten.',
-                'danielturm-title': 'Danielturm Nördlingen',
-                'danielturm-description': 'Der Danielturm ist der Glockenturm der St. Georgskirche und bietet einen atemberaubenden Panoramablick über Nördlingen und den Rieskrater.',
-                'footer-text': 'Wir freuen uns auf eine wundervolle Feier mit Ihnen! ♥',
-                'footer-ad-text': 'Website entwickelt von:',
-                'footer-github': 'GitHub'
-            },
-            en: {
-                'title': 'Welcome to Our Wedding',
-                'subtitle': 'Gasthaus Rieser Hof, Rudelstetten',
-                'nav-location': 'Wedding Venue',
-                'nav-hotels': 'Hotels',
-                'nav-restaurants': 'Restaurants',
-                'nav-attractions': 'Attractions',
-                'location-title': 'Wedding Venue',
-                'venue-name': 'Gasthaus Rieser Hof',
-                'venue-address': 'St. Ulrich Strasse 12, 86733 Rudelstetten',
-                'venue-phone': 'Phone: 09085/513',
-                'venue-description': 'The Gasthaus Rieser Hof is located in the heart of the Ries Geopark and offers Swabian regional cuisine with local specialties. A special attraction is the house brew - a self-brewed beer!',
-                'hotels-title': 'Recommended Hotels',
-                'restaurants-title': 'Recommended Restaurants',
-                'attractions-title': 'Attractions',
-                'address': 'Address:',
-                'distance': 'Distance:',
-                'category': 'Category:',
-                'parking': 'Parking:',
-                'cuisine': 'Cuisine:',
-                'location': 'Location:',
-                'type': 'Type:',
-                'highlights': 'Highlights:',
-                'btn-website': 'Visit Website',
-                'btn-maps': 'Open in Maps',
-                'btn-search': 'Search',
-                'btn-info': 'Info',
-                'jufa-description': 'Family-friendly hotel with sun terrace, directly at the historic city wall of Nördlingen. Themed rooms in planetary system design.',
-                'nh-description': 'Historic hotel in a former monastery, in the heart of Nördlingen\'s old town. Unique atmosphere with modern comfort.',
-                'heylou-description': 'Modern design hotel in Nördlingen, convincing with stylish ambience and comfortable furnishings.',
-                'romana-description': 'Popular Italian restaurant at the market square of Oettingen with authentic cuisine and cozy atmosphere.',
-                'huebele-description': 'Cozy restaurant with traditional German cuisine and a charming courtyard.',
-                'huebele-cuisine': 'Croatian Cuisine',
-                'schloessle-description': 'Historic restaurant in the heart of Nördlingen with regional specialties and cozy atmosphere.',
-                'schloessle-cuisine': 'Regional Cuisine',
-                'noerdlingen-title': 'Nördlingen - The City in the Ries Crater',
-                'noerdlingen-description': 'Medieval city with completely preserved city wall. Famous as filming location for various movies and the unique location in the Ries crater.',
-                'ofnet-title': 'Ofnet Caves',
-                'ofnet-description': 'Famous Stone Age archaeological site with two caves. Important archaeological location with beautiful hiking trail and nature experience.',
-                'stadtmauer-title': 'Nördlingen City Wall',
-                'stadtmauer-description': 'The completely preserved and walkable city wall of Nördlingen is a unique monument in Germany and offers a beautiful circular walk around the old town.',
-                
-                'minigolf-title': 'Minigolf Course Nördlingen',
-                'minigolf-description': 'A popular minigolf course in Nördlingen, ideal for families and friends who want to spend a relaxed time.',
-                'danielturm-title': 'Daniel Tower Nördlingen',
-                'danielturm-description': 'The Daniel Tower is the bell tower of St. George\'s Church and offers a breathtaking panoramic view over Nördlingen and the Ries crater.',
-                'footer-text': 'We look forward to a wonderful celebration with you! ♥',
-                'footer-ad-text': 'Website developed by:',
-                'footer-github': 'GitHub'
-            },
-            ro: {
-                'title': 'Bun veniți la nunta noastră',
-                'subtitle': 'Gasthaus Rieser Hof, Rudelstetten',
-                'nav-location': 'Locația nunții',
-                'nav-hotels': 'Hoteluri',
-                'nav-restaurants': 'Restaurante',
-                'nav-attractions': 'Atracții',
-                'location-title': 'Locația nunții',
-                'venue-name': 'Gasthaus Rieser Hof',
-                'venue-address': 'St. Ulrich Strasse 12, 86733 Rudelstetten',
-                'venue-phone': 'Telefon: 09085/513',
-                'venue-description': 'Gasthaus Rieser Hof se află în inima Geoparcului Ries și oferă bucătărie regională șvabă cu specialități locale. O atracție specială este băutura casei - o bere fabricată propriu!',
-                'hotels-title': 'Hoteluri recomandate',
-                'restaurants-title': 'Restaurante recomandate',
-                'attractions-title': 'Atracții turistice',
-                'address': 'Adresă:',
-                'distance': 'Distanță:',
-                'category': 'Categorie:',
-                'parking': 'Parcare:',
-                'cuisine': 'Bucătărie:',
-                'location': 'Locație:',
-                'type': 'Tip:',
-                'highlights': 'Puncte de atracție:',
-                'btn-website': 'Vizitează site-ul',
-                'btn-maps': 'Deschide în hărți',
-                'btn-search': 'Caută',
-                'btn-info': 'Informații',
-                'jufa-description': 'Hotel prietenos cu familiile cu terasă la soare, direct la zidul istoric al orașului Nördlingen. Camere tematice în design de sistem planetar.',
-                'nh-description': 'Hotel istoric într-o fostă mănăstire, în inima centrului istoric al orașului Nördlingen. Atmosferă unică cu confort modern.',
-                'heylou-description': 'Hotel de design modern în Nördlingen, care convinge prin ambianța sa elegantă și dotările confortabile.',
-                'romana-description': 'Restaurant italian popular în piața centrală din Oettingen cu bucătărie autentică și atmosferă confortabilă.',
-                'huebele-description': 'Restaurant confortabil cu bucătărie tradițională germană și o curte fermecătoare.',
-                'huebele-cuisine': 'Bucătărie croată',
-                'schloessle-description': 'Restaurant istoric în inima orașului Nördlingen, cu specialități regionale și o atmosferă confortabilă.',
-                'schloessle-cuisine': 'Bucătărie regională',
-                'noerdlingen-title': 'Nördlingen - Orașul din craterul Ries',
-                'noerdlingen-description': 'Oraș medieval cu zid complet conservat. Faimos ca locație de filmare pentru diverse filme și locația unică în craterul Ries.',
-                'ofnet-title': 'Peșterile Ofnet',
-                'ofnet-description': 'Famós sit arheologic din Epoca de Piatră cu două peșteri. Locație arheologică importantă cu traseu de drumeție frumos și experiență în natură.',
-                'stadtmauer-title': 'Zidul orașului Nördlingen',
-                'stadtmauer-description': 'Zidul orașului Nördlingen, complet conservat și accesibil, este un monument unic în Germania și oferă o plimbare frumoasă în jurul orașului vechi.',
-                
-                'minigolf-title': 'Teren de minigolf Nördlingen',
-                'minigolf-description': 'Un teren de minigolf popular în Nördlingen, ideal pentru familii și prieteni care doresc să petreacă un timp relaxant.',
-                'danielturm-title': 'Turnul Daniel Nördlingen',
-                'danielturm-description': 'Turnul Daniel este clopotnița Bisericii Sf. Gheorghe și oferă o vedere panoramică uimitoare asupra orașului Nördlingen și a craterului Ries.',
-                'footer-text': 'Așteptăm cu nerăbdare o celebrare minunată cu voi! ♥',
-                'footer-ad-text': 'Website dezvoltat de:',
-                'footer-github': 'GitHub'
-            },
-            hr: {
-                'title': 'Dobrodošli na naše vjenčanje',
-                'subtitle': 'Gasthaus Rieser Hof, Rudelstetten',
-                'nav-location': 'Mjesto vjenčanja',
-                'nav-hotels': 'Hoteli',
-                'nav-restaurants': 'Restorani',
-                'nav-attractions': 'Atrakcije',
-                'location-title': 'Mjesto vjenčanja',
-                'venue-name': 'Gasthaus Rieser Hof',
-                'venue-address': 'St. Ulrich Strasse 12, 86733 Rudelstetten',
-                'venue-phone': 'Telefon: 09085/513',
-                'venue-description': 'Gasthaus Rieser Hof nalazi se u srcu Ries Geoparka i nudi švapsku regionalnu kuhinju s lokalnim specijalitetima. Posebna atrakcija je kućno piće - domaće pivo!',
-                'hotels-title': 'Preporučeni hoteli',
-                'restaurants-title': 'Preporučeni restorani',
-                'attractions-title': 'Turistične atrakcije',
-                'address': 'Adresa:',
-                'distance': 'Udaljenost:',
-                'category': 'Kategorija:',
-                'parking': 'Parkiranje:',
-                'cuisine': 'Kuhinja:',
-                'location': 'Lokacija:',
-                'type': 'Tip:',
-                'highlights': 'Naglasci:',
-                'btn-website': 'Posjeti web stranicu',
-                'btn-maps': 'Otvori u kartama',
-                'btn-search': 'Traži',
-                'btn-info': 'Informacije',
-                'jufa-description': 'Obiteljski hotel s terasom za sunčanje, izravno uz povijesni gradski zid Nördlingena. Tematske sobe u dizajnu planetarnog sustava.',
-                'nh-description': 'Povijesni hotel u bivšem samostanu, u srcu starog grada Nördlingena. Jedinstvena atmosfera s modernim komforom.',
-                'heylou-description': 'Moderan dizajnerski hotel u Nördlingenu, koji uvjerava stilskim ambijentom i udobnom opremom.',
-                'romana-description': 'Popularan talijanski restoran na tržišnom trgu Oettingena s autentičnom kuhinjom i ugodnom atmosferom.',
-                'huebele-description': 'Ugodan restoran s tradicionalnom njemačkom kuhinjom i šarmantnim dvorištem.',
-                'huebele-cuisine': 'Hrvatska kuhinja',
-                'schloessle-description': 'Povijesni restoran u srcu Nördlingena s regionalnim specijalitetima i ugodnom atmosferom.',
-                'schloessle-cuisine': 'Regionalna kuhinja',
-                'noerdlingen-title': 'Nördlingen - Grad u Ries krateru',
-                'noerdlingen-description': 'Srednjovjekovni grad s potpuno sačuvanim gradskim zidom. Poznat kao lokacija snimanja za razne filmove i jedinstven položaj u Ries krateru.',
-                'ofnet-title': 'Ofnet špilje',
-                'ofnet-description': 'Poznato arheološko nalazište iz kamenog doba s dvije špilje. Važna arheološka lokacija s prekrasnom stazom za pješačenje i prirodnim iskustvom.',
-                'stadtmauer-title': 'Gradski zid Nördlingen',
-                'stadtmauer-description': 'Potpuno očuvan i prohodan gradski zid Nördlingena jedinstven je spomenik u Njemačkoj i nudi prekrasnu kružnu šetnju oko starog grada.',
-                
-                'minigolf-title': 'Minigolf teren Nördlingen',
-                'minigolf-description': 'Popularan minigolf teren u Nördlingenu, idealan za obitelji i prijatelje koji žele provesti opušteno vrijeme.',
-                'danielturm-title': 'Danielov toranj Nördlingen',
-                'danielturm-description': 'Danielov toranj je zvonik crkve sv. Jurja i nudi zadivljujući panoramski pogled na Nördlingen i Ries krater.',
-                'footer-text': 'Radujemo se divnom slavlju s vama! ♥',
-                'footer-ad-text': 'Web stranicu razvio:',
-                'footer-github': 'GitHub'
-            },
-            it: {
-                'title': 'Benvenuti al nostro matrimonio',
-                'subtitle': 'Gasthaus Rieser Hof, Rudelstetten',
-                'nav-location': 'Luogo del matrimonio',
-                'nav-hotels': 'Hotel',
-                'nav-restaurants': 'Ristoranti',
-                'nav-attractions': 'Attrazioni',
-                'location-title': 'Luogo del matrimonio',
-                'venue-name': 'Gasthaus Rieser Hof',
-                'venue-address': 'St. Ulrich Strasse 12, 86733 Rudelstetten',
-                'venue-phone': 'Telefono: 09085/513',
-                'venue-description': 'Il Gasthaus Rieser Hof si trova nel cuore del Geoparco Ries e offre cucina regionale sveva con specialità locali. Un\'attrazione speciale è la bevanda della casa - una birra prodotta in proprio!',
-                'hotels-title': 'Hotel consigliati',
-                'restaurants-title': 'Ristoranti consigliati',
-                'attractions-title': 'Attrazioni turistiche',
-                'address': 'Indirizzo:',
-                'distance': 'Distanza:',
-                'category': 'Categoria:',
-                'parking': 'Parcheggio:',
-                'cuisine': 'Cucina:',
-                'location': 'Posizione:',
-                'type': 'Tipo:',
-                'highlights': 'Punti salienti:',
-                'btn-website': 'Visita il sito web',
-                'btn-maps': 'Apri nelle mappe',
-                'btn-search': 'Cerca',
-                'btn-info': 'Informazioni',
-                'jufa-description': 'Hotel per famiglie con terrazza solarium, direttamente alle mura storiche della città di Nördlingen. Camere tematiche nel design del sistema planetario.',
-                'nh-description': 'Hotel storico in un ex monastero, nel cuore del centro storico di Nördlingen. Atmosfera unica con comfort moderno.',
-                'heylou-description': 'Moderno hotel di design a Nördlingen, che convince con unatmosfera elegante e arredi confortevoli.',
-                'romana-description': 'Popolare ristorante italiano nella piazza del mercato di Oettingen con cucina autentica e atmosfera accogliente.',
-                'huebele-description': 'Ristorante accogliente con cucina tradizionale tedesca e un incantevole cortile.',
-                'huebele-cuisine': 'Cucina croata',
-                'schloessle-description': 'Ristorante storico nel cuore di Nördlingen con specialità regionali e un atmosfera accogliente.',
-                'schloessle-cuisine': 'Cucina regionale',
-                'noerdlingen-title': 'Nördlingen - La città nel cratere Ries',
-                'noerdlingen-description': 'Città medievale con mura completamente conservate. Famosa come location cinematografica per vari film e la posizione unica nel cratere Ries.',
-                'ofnet-title': 'Grotte di Ofnet',
-                'ofnet-description': 'Famoso sito archeologico dell\'Età della Pietra con due grotte. Importante location archeologica con bellissimo sentiero escursionistico ed esperienza naturale.',
-                'stadtmauer-title': 'Mura di Nördlingen',
-                'stadtmauer-description': 'Le mura di Nördlingen, completamente conservate e percorribili, sono un monumento unico in Germania e offrono un bellissimo giro intorno al centro storico.',
-                
-                'minigolf-title': 'Campo da minigolf Nördlingen',
-                'minigolf-description': 'Un popolare campo da minigolf a Nördlingen, ideale per famiglie e amici che vogliono trascorrere un momento di relax.',
-                'danielturm-title': 'Torre Daniel Nördlingen',
-                'danielturm-description': 'La Torre Daniel è il campanile della Chiesa di San Giorgio e offre una vista panoramica mozzafiato su Nördlingen e sul cratere del Ries.',
-                'footer-text': 'Non vediamo l\'ora di una celebrazione meravigliosa con voi! ♥',
-                'footer-ad-text': 'Sito web sviluppato da:',
-                'footer-github': 'GitHub'
-            }
-        };
-
-        let currentLanguage = 'de';
-
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            
-            // Update active button
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            // Update all translatable elements
-            document.querySelectorAll('[data-lang-key]').forEach(element => {
-                const key = element.getAttribute('data-lang-key');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-        }
-
-        function openMaps(address) {
-            // Detect user agent for mobile vs desktop
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                // Try Apple Maps first on iOS, Google Maps on Android
-                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                if (isIOS) {
-                    window.open(`maps://maps.apple.com/?q=${encodeURIComponent(address)}&dirflg=d`, '_blank');
-                } else {
-                    window.open(`https://maps.google.com/maps?q=${encodeURIComponent(address)}&navigate=yes`, '_blank');
-                }
-            } else {
-                // Desktop - open Google Maps
-                window.open(`https://maps.google.com/maps?q=${encodeURIComponent(address)}`, '_blank');
-            }
-        }
-
-        function searchHotel(hotelName) {
-            window.open(`https://www.google.com/search?q=${encodeURIComponent(hotelName + ' booking hotel')}`, '_blank');
-        }
-
-        function searchRestaurant(restaurantName) {
-            window.open(`https://www.google.com/search?q=${encodeURIComponent(restaurantName)}`, '_blank');
-        }
-
-        function searchAttraction(attractionName) {
-            window.open(`https://www.google.com/search?q=${encodeURIComponent(attractionName + ' information')}`, '_blank');
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Initialize animations and smooth scrolling when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set up fade-in animations
-            const elementsToAnimate = document.querySelectorAll('.card, .section');
-            elementsToAnimate.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        });
-    </script>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
